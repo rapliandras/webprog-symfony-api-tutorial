@@ -13,7 +13,8 @@ class Lyric
 {
     /**
      * @ORM\Id()
-     * @ORM\Column(name="id")
+     * @ORM\GeneratedValue
+     * @ORM\Column(name="id", type="integer")
      */
     protected $id;
 
@@ -31,6 +32,16 @@ class Lyric
      * @ORM\Column(name="year", type="integer")
      */
     protected $year;
+
+    /**
+     * @ORM\Column(name="genre", type="string", length=40)
+     */
+    protected $genre;
+
+    /**
+     * @ORM\Column(name="band", type="string")
+     */
+    protected $band;
 
     public function getLyrics()
     {
@@ -55,5 +66,53 @@ class Lyric
     public function getId() : ?int
     {
         return $this->id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getGenre()
+    {
+        return $this->genre;
+    }
+
+    /**
+     * @param mixed $genre
+     */
+    public function setGenre($genre): void
+    {
+        $this->genre = $genre;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBand()
+    {
+        return $this->band;
+    }
+
+    /**
+     * @param mixed $band
+     */
+    public function setBand($band): void
+    {
+        $this->band = $band;
+    }
+
+    /**
+     * @param mixed $year
+     */
+    public function setYear($year): void
+    {
+        $this->year = $year;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id): void
+    {
+        $this->id = $id;
     }
 }
