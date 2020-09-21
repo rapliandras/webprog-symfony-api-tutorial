@@ -14,18 +14,17 @@ class AppFixtures extends Fixture
 
         $faker = Factory::create();
 
-        $lyrics = new Lyric();
+        for($i=1; $i<=30; $i++){
 
-        for($i=1; $i<=10; $i++){
-
-            $lyrics = clone $lyrics;
-            $lyrics->setId($i);
+            $lyrics = new Lyric;
             $lyrics->setBand($faker->name);
             $lyrics->setLyrics($faker->text);
-            $lyrics->setYear(rand(1990,2015));
-            $lyrics->setGenre("metal");
-            $lyrics->setSong($faker->name);
+            $lyrics->setYear(rand(1970,2020));
 
+            $genres = ["metal","pop","progressive metal","progressive rock","rnb","hiphop","rap","world"];
+            $lyrics->setGenre(array_rand(array_combine($genres, $genres)));
+
+            $lyrics->setSong($faker->name);
 
             $manager->persist($lyrics);
 

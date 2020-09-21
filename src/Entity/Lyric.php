@@ -6,7 +6,7 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="App\Repository\LyricRepository")
  * @ORM\Table(name="lyrics")
  */
 class Lyric
@@ -115,4 +115,13 @@ class Lyric
     {
         $this->id = $id;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getYear()
+    {
+        return $this->year;
+    }
+
 }
